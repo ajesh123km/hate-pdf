@@ -1,9 +1,9 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom"; // ✅ Use HashRouter
+
 import Index from "./pages/index";
 import NotFound from "./pages/NotFound";
 import MergePDF from "./pages/tools/MergePDF";
@@ -24,7 +24,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/tools/merge" element={<MergePDF />} />
@@ -37,12 +37,13 @@ const App = () => (
           <Route path="/tools/unlock" element={<UnlockPDF />} />
           <Route path="/tools/organize" element={<OrganizePages />} />
           <Route path="/tools/watermark" element={<WatermarkPDF />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          {/* Catch-all route */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
 
 export default App;
+ 
