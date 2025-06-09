@@ -1,7 +1,8 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Tailwind base, components, and utilities should be imported via PostCSS or your build tool, not directly in plain CSS */
 
 @layer base {
   :root {
@@ -87,35 +88,58 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
 
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
 .pdf-tool-card {
-  @apply bg-white rounded-xl shadow-md transition-all duration-300 hover:shadow-lg border border-gray-100 overflow-hidden;
-}
-
-.pdf-tool-card:hover {
-  @apply -translate-y-1;
+  background-color: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
+  transition-property: all;
+  transition-duration: 300ms;
+  border: 1px solid #f3f4f6;
+  overflow: hidden;
 }
 
 .dropzone {
-  @apply border-2 border-dashed rounded-xl p-8 bg-gray-50 cursor-pointer transition-colors;
+  border-width: 2px;
+  border-style: dashed;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  background-color: #f9fafb;
+  cursor: pointer;
+  transition-property: background-color, border-color, color, fill, stroke;
 }
 
 .dropzone.active {
-  @apply border-pdf-blue bg-blue-50;
+  border-color: #2563eb; /* Tailwind's pdf-blue (blue-600) */
+  background-color: #eff6ff; /* Tailwind's blue-50 */
 }
 
 .page-thumbnail {
-  @apply border rounded-md shadow-sm overflow-hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+  overflow: hidden;
 }
 
 .file-item {
-  @apply flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 150ms;
+}
+
+.file-item:hover {
+  background-color: #f9fafb;
 }
