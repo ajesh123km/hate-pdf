@@ -7,7 +7,7 @@ import {
   FileText, 
   Scissors, 
   Merge, 
-  FileDown, 
+  FileDown,  
   FileUp, 
   Image, 
   FileEdit, 
